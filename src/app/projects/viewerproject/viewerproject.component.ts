@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-viewerproject',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewerprojectComponent implements OnInit {
 
-  constructor() { }
+  public projectId = '';
+
+  constructor(private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.activatedRoute.paramMap
+      .subscribe((params: ParamMap) => {
+        this.projectId = params.get('id');
+      });
   }
 
 }

@@ -5,13 +5,15 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { ViewerprojectComponent } from './viewerproject/viewerproject.component';
 import { NewprojectComponent } from './newproject/newproject.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [ProjectsComponent, ViewerprojectComponent, NewprojectComponent],
   imports: [
     CommonModule,
-    ProjectsRoutingModule
+    ProjectsRoutingModule,
+    FormsModule
   ]
 })
 export class ProjectsModule { }
