@@ -1,0 +1,15 @@
+<header class="sticky">
+  <a routerLink="/projects/new" class="button"><span>new</span></a>
+</header>
+<div class="container">
+  <ul *ngIf="projects.length>0; else empty">
+    <li *ngFor="let project of projects">
+      <span>{{ project.name }}</span>
+      <a [routerLink]="['project',project.id]" class="button"><span>view</span></a>
+    </li>
+  </ul>
+  <ng-template #empty>
+    <i><strong>No data yet</strong></i>
+  </ng-template>
+</div>
+<router-outlet></router-outlet>
