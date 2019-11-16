@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
+import { NewprojectComponent } from './projects/newproject/newproject.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
-import { ViewerprojectComponent } from './viewerproject/viewerproject.component';
-import { NewprojectComponent } from './newproject/newproject.component';
-import { FormsModule } from '@angular/forms';
+import { ViewerprojectComponent } from './projects/viewerproject/viewerproject.component';
 
 
 @NgModule({
@@ -16,4 +16,5 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ]
 })
-export class ProjectsModule { }
+export class ProjectsModule {
+}

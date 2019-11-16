@@ -1,5 +1,10 @@
 {
   "rulesDirectory": ["codelyzer"],
+  "extends": [
+    "tslint-jasmine-rules",
+    "tslint-config-prettier",
+    "tslint-eslint-rules"
+  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -24,9 +29,7 @@
     "no-debugger": true,
     "no-duplicate-super": true,
     "no-empty": false,
-    "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [true, "ignore-params"],
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
@@ -42,19 +45,6 @@
     "radix": true,
     "triple-equals": [true, "allow-null-check"],
     "unified-signatures": true,
-    "variable-name": false,
-    "nx-enforce-module-boundaries": [
-      true,
-      {
-        "allow": [],
-        "depConstraints": [
-          {
-            "sourceTag": "*",
-            "onlyDependOnLibsWithTags": ["*"]
-          }
-        ]
-      }
-    ],
     "no-magic-numbers": [true, 0, 1],
     "cyclomatic-complexity": [true, 8],
     "max-file-line-count": [true, 256],
@@ -69,6 +59,74 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "array-bracket-spacing": [true, "never"],
+    "object-curly-spacing": [true, "always"],
+    "no-focused-tests": true,
+    "no-inferrable-types": [false, "ignore-params"],
+    "max-classes-per-file": false,
+    "import-destructuring-spacing": true,
+    "no-forward-ref": true,
+    "use-life-cycle-interface": true,
+    "jsdoc-format": false,
+    "one-line": [true, "check-open-brace"],
+    "align": false,
+    "interface-name": false,
+    "no-conditional-assignment": true,
+    "no-empty-interface": false,
+    "only-arrow-functions": [true, "allow-named-functions"],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "groups": [{
+            "name": "app",
+            "match": "^@app",
+            "order": 20
+          },
+          {
+            "name": "shared-lib",
+            "match": "^@shared-lib",
+            "order": 20
+          },
+          {
+            "name": "relative_paths",
+            "match": "^[.][.]?",
+            "order": 20
+          },
+          {
+            "name": "scoped_paths",
+            "match": "^@",
+            "order": 10
+          },
+          {
+            "name": "absolute_paths",
+            "match": "^[a-zA-Z]",
+            "order": 10
+          },
+          {
+            "match": null,
+            "order": 10
+          }
+        ]
+      }
+    ],
+    "prefer-for-of": true,
+    "prefer-object-spread": true,
+    "quotemark": [true, "single", "avoid-escape"],
+    "trailing-comma": [
+      false,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "ban-keywords",
+      "check-format"
+    ]
   }
 }
