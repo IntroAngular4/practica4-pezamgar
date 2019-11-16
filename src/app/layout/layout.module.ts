@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from '../app-routing.module';
 
-import { FooterComponent } from './Layout/footer/footer.component';
-import { HeaderComponent } from './Layout/header/header.component';
-import { LayoutComponent } from './Layout/layout.component';
-import { MainComponent } from './Layout/main/main.component';
-
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { LayoutComponent } from './layout.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +16,12 @@ import { MainComponent } from './Layout/main/main.component';
     FooterComponent
   ],
   imports: [
-    AppRoutingModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     LayoutComponent
   ]
 })
-export class CoreModule {
+export class LayoutModule {
 }

@@ -16,4 +16,5 @@ import { ViewerprojectComponent } from './viewerproject/viewerproject.component'
     FormsModule
   ]
 })
-export class ProjectsModule { }
+export class ProjectsModule {
+}
