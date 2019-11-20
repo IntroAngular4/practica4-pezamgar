@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
 import { Project } from '../models/project.model';
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-newproject',
@@ -12,7 +13,7 @@ export class NewProjectComponent implements OnInit {
 
   public project: Project;
 
-  constructor() {
+  constructor(private projectsService: ProjectsService) {
   }
 
   ngOnInit() {
@@ -23,10 +24,6 @@ export class NewProjectComponent implements OnInit {
   }
 
   public saveProject(name: string) {
-    const lastId = environment.projects.length;
-    environment.projects.push({
-      id: lastId + 1,
-      name: name
-    });
+    this.projectsService.saveProject(name);
   }
 }
