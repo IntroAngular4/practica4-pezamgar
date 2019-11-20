@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -13,4 +13,5 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeRoutingModule
   ]
 })
-export class HomeModule { }
+export class HomeModule {
+}
