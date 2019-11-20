@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { NewprojectComponent } from './projects/newproject/newproject.component';
+import { NewProjectComponent } from './new-project/new-project.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ViewerprojectComponent } from './projects/viewerproject/viewerproject.component';
+import { ViewerProjectComponent } from './viewer-project/viewer-project.component';
 
 const routes: Routes = [
   {
@@ -12,11 +12,11 @@ const routes: Routes = [
     children: [
       {
         path: 'new',
-        component: NewprojectComponent
+        component: NewProjectComponent
       },
       {
         path: 'project/:id',
-        component: ViewerprojectComponent
+        component: ViewerProjectComponent
       }
     ]
   }
