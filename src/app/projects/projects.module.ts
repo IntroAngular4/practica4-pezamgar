@@ -8,6 +8,8 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { ViewerProjectFormComponent } from './viewer-project/viewer-project-form/viewer-project-form.component';
 import { ViewerProjectComponent } from './viewer-project/viewer-project.component';
+import { FilterProjectsFormComponent } from './filter-projects-form/filter-projects-form.component';
+import { NewProjectFormComponent } from './new-project/new-project-form/new-project-form.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ViewerProjectComponent } from './viewer-project/viewer-project.componen
     ViewerProjectComponent,
     NewProjectComponent,
     ProjectsListComponent,
-    ViewerProjectFormComponent
+    ViewerProjectFormComponent,
+    FilterProjectsFormComponent,
+    NewProjectFormComponent
   ],
   imports: [
     CommonModule,

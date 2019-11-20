@@ -22,11 +22,11 @@ export class NewProjectComponent implements OnInit {
     };
   }
 
-  public saveContact() {
+  public saveProject(name: string) {
     const lastId = environment.projects.length;
     environment.projects.push({
       id: lastId + 1,
-      name: this.project.name
+      name: name
     });
   }
 }

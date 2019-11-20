@@ -1,0 +1,12 @@
+<form>
+  <section>
+    <label>Name</label>
+    <input name="name"
+           type="text"
+           [(ngModel)]="project.name"
+           placeholder="Project"/>
+  </section>
+  <input value="Save"
+         type="submit"
+         (click)="onSaveProject()"/>
+</form>
