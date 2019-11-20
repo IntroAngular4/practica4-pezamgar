@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ViewerProjectComponent implements OnInit {
 
-  public projectId = '';
+  public projectId = 0;
 
   constructor(private activatedRoute: ActivatedRoute) {
   }
@@ -16,7 +16,7 @@ export class ViewerProjectComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap
       .subscribe((params: ParamMap) => {
-        this.projectId = params.get('id');
+        this.projectId = +params.get('id');
       });
   }
 
