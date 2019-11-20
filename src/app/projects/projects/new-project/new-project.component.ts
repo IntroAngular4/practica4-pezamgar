@@ -5,10 +5,10 @@ import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-newproject',
-  templateUrl: './newproject.component.html',
-  styleUrls: ['./newproject.component.css']
+  templateUrl: './new-project.component.html',
+  styleUrls: ['./new-project.component.css']
 })
-export class NewprojectComponent implements OnInit {
+export class NewProjectComponent implements OnInit {
 
   public project: Project;
 

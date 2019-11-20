@@ -3,10 +3,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-viewerproject',
-  templateUrl: './viewerproject.component.html',
-  styleUrls: ['./viewerproject.component.css']
+  templateUrl: './viewer-project.component.html',
+  styleUrls: ['./viewer-project.component.css']
 })
-export class ViewerprojectComponent implements OnInit {
+export class ViewerProjectComponent implements OnInit {
 
   public projectId = '';
 

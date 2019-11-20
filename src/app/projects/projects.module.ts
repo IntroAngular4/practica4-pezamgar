@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { NewprojectComponent } from './projects/newproject/newproject.component';
+import { NewProjectComponent } from './projects/new-project/new-project.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
-import { ViewerprojectComponent } from './projects/viewerproject/viewerproject.component';
+import { ViewerProjectComponent } from './projects/viewer-project/viewer-project.component';
 
 
 @NgModule({
-  declarations: [ProjectsComponent, ViewerprojectComponent, NewprojectComponent],
+  declarations: [ProjectsComponent, ViewerProjectComponent, NewProjectComponent],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
