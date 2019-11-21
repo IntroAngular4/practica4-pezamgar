@@ -1,5 +1,7 @@
 <div class="row">
   <div class="card col-sm-6">
+    <app-filter-projects-form (change)="searchProject($event)">
+    </app-filter-projects-form>
     <app-projects-list [projects]="projects"></app-projects-list>
     <div>
       <a routerLink="/projects/new"

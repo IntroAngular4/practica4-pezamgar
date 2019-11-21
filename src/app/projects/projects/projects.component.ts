@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
 import { Project } from '../models/project.model';
@@ -11,6 +11,7 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectsComponent implements OnInit {
 
+
   public projects: Project[];
 
   constructor(private projectService: ProjectsService) {
@@ -20,4 +21,7 @@ export class ProjectsComponent implements OnInit {
     this.projects = this.projectService.getProjects();
   }
 
+  searchProject(value: string) {
+    this.projects = this.projectService.getSearchProjects(value);
+  }
 }

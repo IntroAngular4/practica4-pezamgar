@@ -36,4 +36,9 @@ export class ProjectsService {
       name: name
     });
   }
+
+  public getSearchProjects(value: string) {
+    return this.projects.filter(p =>
+      p.name.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) >= 0);
+  }
 }
