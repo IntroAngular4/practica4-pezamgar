@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-projects-form',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterProjectsFormComponent implements OnInit {
 
-  constructor() { }
+  public searchProject: string;
+  @Output()
+  change: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  dataChanged(event) {
+    this.change.emit(this.searchProject);
+  }
 }
