@@ -5,6 +5,7 @@
 export const environment = {
   appName: 'training-projects',
   production: false,
+  urlBase: 'https://api-base.herokuapp.com'
 };
 
 /*

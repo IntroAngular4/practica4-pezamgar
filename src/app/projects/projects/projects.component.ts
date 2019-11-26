@@ -1,6 +1,5 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
 import { Project } from '../models/project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -18,7 +17,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.projects = this.projectService.getProjects();
+    this.projectService.getProjects().subscribe(x => this.projects = x);
   }
 
   searchProject(value: string) {

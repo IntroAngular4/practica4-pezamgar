@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -25,7 +26,8 @@ import { ViewerProjectComponent } from './viewer-project/viewer-project.componen
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class ProjectsModule {
