@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { Project } from './models/project.model';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,9 @@ export class ProjectsService {
               private http: HttpClient) {
   }
 
-  public getByIdProject(id: number): Project {
-    return this.projects.find(p => p._id === id);
+  public getByIdProject(id: number): Observable<Project> {
+    const url = this.urlProjects + `/${id}`;
+    return this.http.get<Project>(url);
   }
 
   public getSizeProjects(): Observable<any> {
@@ -32,17 +34,16 @@ export class ProjectsService {
   }
 
   public getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.urlProjects);
+    return this.http.get<Project[]>(this.urlProjects)
+      .pipe(
+        tap(x => console.log(x))
+      );
   }
 
   public saveProject(name: string): Observable<Project> {
-    let lastId = 0;
-    this.getSizeProjects().subscribe(x => lastId = x.count);
-    const newProject: Project = {
-      _id: lastId + 1,
+    const newProject = {
       name: name
     };
-
     return this.http.post<Project>(this.urlProjects, newProject, this.httpOptions);
   }
 
