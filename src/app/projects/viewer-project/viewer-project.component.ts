@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Project } from '../models/project.model';
 import { ProjectsService } from '../projects.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-viewerproject',
@@ -11,7 +12,6 @@ import { ProjectsService } from '../projects.service';
 })
 export class ViewerProjectComponent implements OnInit {
 
-  public projectId = 0;
   public project: Project;
 
   constructor(private route: ActivatedRoute,
@@ -21,8 +21,14 @@ export class ViewerProjectComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap
       .subscribe((params: ParamMap) => {
-        this.projectId = +params.get('id');
-        this.project = this.projectsService.getByIdProject(this.projectId);
+        const projectId = +params.get('id');
+        this.projectsService.getByIdProject(projectId)
+          .pipe(
+            tap(x => console.log(x))
+          )
+          .subscribe(x => {
+            this.project = x;
+          });
       });
   }
 
