@@ -1,4 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { environment } from '../../environments/environment';
 
 import { Project } from './models/project.model';
 
@@ -7,34 +11,39 @@ import { Project } from './models/project.model';
 })
 export class ProjectsService {
 
-  private projects: Project[] = [
-    { id: 0, name: 'Learn Angular' },
-    { id: 1, name: 'Develop My Dream app' },
-    { id: 2, name: 'Travel around the world' },
-    { id: 3, name: 'Clean my room' }
-  ];
+  private projects: Project[] = [];
 
-  constructor(private projectsService: ProjectsService) {
+  private urlProjects = environment.urlBase + '/api/pub/projects';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  constructor(private projectsService: ProjectsService,
+              private http: HttpClient) {
   }
 
   public getByIdProject(id: number): Project {
-    return this.projects.find(p => p.id === id);
+    return this.projects.find(p => p._id === id);
   }
 
-  public getSizeProjects(): number {
-    return this.projects.length;
+  public getSizeProjects(): Observable<any> {
+    const url = this.urlProjects + '/count';
+    return this.http.get<any>(url);
   }
 
-  public getProjects(): Project[] {
-    return this.projects;
+  public getProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.urlProjects);
   }
 
-  public saveProject(name: string) {
-    const lastId = this.projects.length;
-    this.projects.push({
-      id: lastId + 1,
+  public saveProject(name: string): Observable<Project> {
+    let lastId = 0;
+    this.getSizeProjects().subscribe(x => lastId = x.count);
+    const newProject: Project = {
+      _id: lastId + 1,
       name: name
-    });
+    };
+
+    return this.http.post<Project>(this.urlProjects, newProject, this.httpOptions);
   }
 
   public getSearchProjects(value: string) {

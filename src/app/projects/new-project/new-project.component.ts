@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { environment } from '../../../environments/environment';
 import { Project } from '../models/project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -13,17 +13,28 @@ export class NewProjectComponent implements OnInit {
 
   public project: Project;
 
-  constructor(private projectsService: ProjectsService) {
+  constructor(private projectsService: ProjectsService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this.project = {
-      id: 0,
+      _id: 0,
       name: ''
     };
   }
 
   public saveProject(name: string) {
-    this.projectsService.saveProject(name);
+    this.projectsService.saveProject(name)
+      .subscribe(
+        () => this.gotoProjects()
+      );
+  }
+
+  private gotoProjects() {
+    this.router.navigate(['/projects'])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

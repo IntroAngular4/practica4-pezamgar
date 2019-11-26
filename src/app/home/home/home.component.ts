@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { environment } from '../../../environments/environment';
 import { ProjectsService } from '../../projects/projects.service';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.numProjects = this.projectsService.getSizeProjects();
+    this.projectsService.getSizeProjects()
+      .pipe(
+        tap(x => console.log(x.count))
+      ).subscribe(
+      x => this.numProjects = x.count
+    );
   }
 
 }
